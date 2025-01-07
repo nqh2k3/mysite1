@@ -1,6 +1,6 @@
 {
   "name": "app",
-  "private": "true",
+  "private": true,
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "autoprefixer": "^10.4.20",
@@ -19,5 +19,10 @@
   },
   "browserslist": [
     "defaults"
-  ]
+  ],
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:nqh2k3/mysite1.git",
+  "author": "nqh2k3 <110041416+VinciHuy@users.noreply.github.com>",
+  "license": "MIT"
 }
