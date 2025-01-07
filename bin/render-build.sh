@@ -10,4 +10,5 @@ bundle exec rails assets:clean
 bundle exec rails db:migrate
 
 # Tạo user đầu tiên nếu chưa tồn tại
-bundle exec rails runner "User.create!(email_address: 'nqh2k3@gmail.com', password: 'nqh2k3@1', password_confirmation: 'nqh2k3@1') unless User.exists?(email_address: 'nqh2k3@gmail.com')"
+echo "Creating user..."
+bundle exec rails runner "User.create!(email_address: ENV['USER_EMAIL'], password: ENV['USER_PASSWORD'], password_confirmation: ENV['USER_PASSWORD']) unless User.exists?(email_address: ENV['USER_EMAIL'])"
