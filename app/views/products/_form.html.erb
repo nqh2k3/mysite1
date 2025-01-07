@@ -1,0 +1,82 @@
+<div class="container my-5" style="max-width: 600px; background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); border: 1px solid #e0e0e0;">
+  <!-- Header với hiệu ứng chữ "lấp lánh chớp chớp" -->
+  <div class="card shadow-sm border-0 rounded-3">
+    <div class="card-header text-white text-center" style="background-color: #0071ce; padding: 15px; border-top-left-radius: 10px; border-top-right-radius: 10px; text-transform: uppercase; letter-spacing: 1px;">
+      <h2 class="h4 mb-0 sparkling-text">NEW PRODUCT</h2>
+    </div>
+
+    <div class="card-body" style="padding: 20px;">
+      <%= form_with(model: product, local: true, class: "needs-validation", novalidate: true) do |form| %>
+        <% if product.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger" style="margin-bottom: 20px; padding: 15px; border-radius: 5px; text-align: center;">
+            <h2 class="alert-heading" style="font-size: 18px; font-weight: bold;"> 
+              <%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:
+            </h2>
+            <ul class="mb-0">
+              <% product.errors.full_messages.each do |message| %>
+                <li style="font-size: 14px; color: #721c24;"><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <!-- Product Name -->
+        <div class="mb-4">
+          <%= form.label :name, class: "form-label fw-bold", style: "margin-bottom: 8px; color: #333;" %>
+          <%= form.text_field :name, class: "form-control", placeholder: "Enter product name", required: true, style: "border-radius: 8px; padding: 12px; font-size: 16px; border: 1px solid #ced4da;" %>
+          <div class="invalid-feedback" style="font-size: 14px; color: #e50914;">Please enter a product name.</div>
+        </div>
+
+        <!-- Price -->
+        <div class="mb-4">
+          <%= form.label :price, class: "form-label fw-bold", style: "margin-bottom: 8px; color: #333;" %>
+          <%= form.number_field :price, class: "form-control", placeholder: "Enter product price", required: true, style: "border-radius: 8px; padding: 12px; font-size: 16px; border: 1px solid #ced4da;" %>
+          <div class="invalid-feedback" style="font-size: 14px; color: #e50914;">Please enter a valid price.</div>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-4">
+          <%= form.label :description, class: "form-label fw-bold", style: "margin-bottom: 8px; color: #333;" %>
+          <%= form.rich_text_area :description, class: "form-control", style: "height: 200px; border-radius: 8px; padding: 12px; font-size: 16px; border: 1px solid #ced4da;" %>
+        </div>
+
+        <!-- Featured Image -->
+        <div class="mb-4">
+          <%= form.label :featured_image, class: "form-label fw-bold", style: "margin-bottom: 8px; color: #333;" %>
+          <%= form.file_field :featured_image, accept: "image/*", class: "form-control", style: "border-radius: 8px; padding: 8px; border: 1px solid #ced4da;" %>
+        </div>
+
+        <!-- Inventory Count -->
+        <div class="mb-4">
+          <%= form.label :inventory_count, class: "form-label fw-bold", style: "margin-bottom: 8px; color: #333;" %>
+          <%= form.number_field :inventory_count, class: "form-control", placeholder: "Enter inventory count", required: true, style: "border-radius: 8px; padding: 12px; font-size: 16px; border: 1px solid #ced4da;" %>
+          <div class="invalid-feedback" style="font-size: 14px; color: #e50914;">Please enter inventory count.</div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center">
+          <%= form.submit "Submit", class: "btn btn-warning btn-lg w-100", style: "border-radius: 8px; font-size: 18px; font-weight: bold; padding: 12px; background-color: #ffc220; color: #333; border: none;" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- CSS để tạo hiệu ứng "lấp lánh chớp chớp" -->
+<style>
+  .sparkling-text {
+    animation: sparkle 1.5s infinite alternate;
+    color: #ffc220;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  @keyframes sparkle {
+    0% {
+      text-shadow: 0 0 5px #ffc220, 0 0 10px #ffc220, 0 0 20px #ffc220;
+    }
+    100% {
+      text-shadow: 0 0 20px #ffc220, 0 0 30px #ffc220, 0 0 40px #ffc220;
+    }
+  }
+</style>

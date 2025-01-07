@@ -1,0 +1,32 @@
+<!-- Flash messages -->
+<%= tag.div(flash[:alert], class: "alert text-center", style: "color: white; background-color: #ff0033; padding: 10px; border-radius: 5px;") if flash[:alert] %>
+<%= tag.div(flash[:notice], class: "alert text-center", style: "color: white; background-color: #0071ce; padding: 10px; border-radius: 5px;") if flash[:notice] %>
+
+<!-- Form đăng nhập -->
+<div class="container my-5">
+  <div class="card p-4 shadow-sm" style="max-width: 400px; margin: auto; border-radius: 10px; border: 2px solid #0071ce;">
+
+    <h2 class="text-center" style="color: #0071ce; font-weight: bold; margin-bottom: 20px;">Sign In</h2>
+
+    <%= form_with url: session_path do |form| %>
+      <!-- Email Field -->
+      <div class="mb-3">
+        <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address], class: "form-control", style: "border: 1px solid #0071ce; border-radius: 5px;" %>
+      </div>
+
+      <!-- Password Field -->
+      <div class="mb-3">
+        <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72, class: "form-control", style: "border: 1px solid #0071ce; border-radius: 5px;" %>
+      </div>
+
+      <!-- Submit Button -->
+      <%= form.submit "Sign In", class: "btn w-100", style: "background-color: #ffbc00; color: white; border-radius: 5px; font-weight: bold;" %>
+    <% end %>
+
+    <!-- Link Forgot Password -->
+    <div class="text-center mt-3">
+      <%= link_to "Forgot password?", new_password_path, style: "color: #0071ce; text-decoration: none; font-weight: bold;" %>
+    </div>
+
+  </div>
+</div>
