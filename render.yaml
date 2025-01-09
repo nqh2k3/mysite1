@@ -21,7 +21,7 @@ services:
       - key: WEB_CONCURRENCY
         value: 2
       - key: USER_EMAIL
-        value: "nqh2k3@gmail.com" # Thay bằng email của bạn
+        value: "nqh2k3@gmail.com" 
       - key: USER_PASSWORD
-        value: "nqh2k3@1" # Thay bằng mật khẩu của bạn
+        value: "nqh2k3@1" 
     preDeployCommand: "bundle exec rails db:migrate"
