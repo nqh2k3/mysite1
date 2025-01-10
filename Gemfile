@@ -29,6 +29,9 @@ gem "solid_queue"
 gem "solid_cable"
 gem "redis", ">= 4.0.1"
 
+gem "redis-rails"
+
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
