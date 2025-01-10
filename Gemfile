@@ -29,7 +29,6 @@ gem "solid_queue"
 gem "solid_cable"
 gem "redis", ">= 4.0.1"
 
-gem "redis-rails"
 
 
 

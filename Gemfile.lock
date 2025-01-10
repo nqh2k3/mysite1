@@ -252,7 +252,6 @@ GEM
       redis-client (>= 0.22.0)
     redis-client (0.23.0)
       connection_pool
-    redis-rails (0.0.0)
     regexp_parser (2.9.3)
     reline (0.5.12)
       io-console (~> 0.5)
@@ -372,7 +371,6 @@ DEPENDENCIES
   puma (>= 5.0)
   rails (~> 8.0.0, >= 8.0.0.1)
   redis (>= 4.0.1)
-  redis-rails
   rubocop-rails-omakase
   selenium-webdriver
   solid_cable
